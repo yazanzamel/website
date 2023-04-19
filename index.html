@@ -53,6 +53,8 @@
         <input type="text" id="productName" required>
         <label for="productPrice">Product Price:</label>
         <input type="number" id="productPrice" step="0.01" required>
+        <label for="productDescription">Product Description:</label>
+        <input type="text" id="productDescription" required>
         <button type="submit">Add Product</button>
     </form>
     <h2>Product List</h2>
@@ -64,15 +66,18 @@
 
             let productName = document.getElementById('productName').value;
             let productPrice = document.getElementById('productPrice').value;
+            let productDescription = document.getElementById('productDescription').value;
 
             let li = document.createElement('li');
-            li.textContent = `${productName} - $${parseFloat(productPrice).toFixed(2)}`;
+            li.innerHTML = `<strong>${productName}</strong> - $${parseFloat(productPrice).toFixed(2)}<br><em>${productDescription}</em>`;
 
             document.getElementById('productList').appendChild(li);
 
             document.getElementById('productName').value = '';
             document.getElementById('productPrice').value = '';
+            document.getElementById('productDescription').value = '';
         });
     </script>
 </body>
 </html>
+
